@@ -1,0 +1,16 @@
+Desayuno;ALL;
+Almuerzo;ALL;
+Cena;ALL;
+Lavar Loza;ALL;
+Barrer;ALL;
+Onces;ALL;
+Sacar Mascotas;ALL;
+Trapear;MO,WE;
+Sacar Basura;MO,WE,FR;
+Lavar Ropa;MO,WE,FR;
+Baño;FR;
+Cocina;FR;
+Sala;FR;
+Estudio;FR;
+Alcoba Principal;FR;
+Alcoba Huespedes;FR;
