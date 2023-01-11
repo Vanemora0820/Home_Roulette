@@ -8,9 +8,6 @@ public class Home extends JFrame {
         this.panel =new JPanel();
         this.title = new JLabel();
         initialConfiguration();
-
-
-
     }
     private JPanel panel;
     private JLabel title;
@@ -25,10 +22,6 @@ public class Home extends JFrame {
         configurationPanel();
         configurationTitle();
         useComponents();
-
-
-
-
     }
 
     private void configurationPanel(){
@@ -37,17 +30,13 @@ public class Home extends JFrame {
     }
     private void configurationTitle(){
         this.title.setText("Home_Roulette");
-        this.title.setForeground(Color.BLACK);
-        //this.title.setFont(Font.SERIF);
+        this.title.setForeground(Color.BLACK    );
+        Font font = this.title.getFont().deriveFont(Font.ITALIC,40);
+        this.title.setFont(font);
     }
 
     private  void useComponents(){
         this.add(panel);
         this.panel.add(title);
     }
-
-
-
-
-
 }
