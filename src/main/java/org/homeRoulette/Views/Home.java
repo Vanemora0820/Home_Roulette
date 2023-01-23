@@ -72,7 +72,9 @@ public class Home extends JFrame {
         this.players.add(player1);
         this.players.add(player2);
     }
+    private void addEvents(){
 
+    }
     private  void useComponents(){
         this.add(panel);
         this.panel.add(title);
