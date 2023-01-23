@@ -1,10 +1,7 @@
 package org.homeRoulette;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Person {
-
     private String name;
     private  ArrayList <String> tasks;
 
@@ -26,8 +23,6 @@ public class Person {
     public void addTask (String task){
         tasks.add(task);
     }
-
-
 }
 
 
