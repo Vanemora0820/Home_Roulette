@@ -2,6 +2,8 @@ package org.homeRoulette.Views;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class Home extends JFrame {
@@ -31,13 +33,14 @@ public class Home extends JFrame {
         this.setLocationRelativeTo(null);
         //this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Game");
+        this.setTitle("Home");
         configurationPanel();
         configurationTitle();
         configurationJLabelsPlayers();
         configurationJTextsPlayers();
         configurationPlayGame();
         useComponents();
+        addEvents();
         this.repaint();
     }
 
@@ -82,7 +85,14 @@ public class Home extends JFrame {
         this.playGame.setBounds(220,350,200,60);
     }
     private void addEvents(){
-    
+        this.playGame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                new Game();
+                dispose();
+            }
+        });
     }
     private  void useComponents(){
         this.add(panel);
