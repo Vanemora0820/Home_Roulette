@@ -10,6 +10,7 @@ public class Home extends JFrame {
     private final int HEIGHT;
     private JPanel panel;
     private JLabel title;
+    private JButton playGame;
     private ArrayList<JTextField> players;
     private ArrayList<JLabel> labelsPlayers;
     public Home (){
@@ -19,6 +20,7 @@ public class Home extends JFrame {
         this.labelsPlayers = new ArrayList<>();
         this.WIDTH = 650;
         this.HEIGHT = 500;
+        this.playGame = new JButton("Iniciar a jugar");
         initialConfiguration();
     }
 
@@ -34,6 +36,7 @@ public class Home extends JFrame {
         configurationTitle();
         configurationJLabelsPlayers();
         configurationJTextsPlayers();
+        configurationPlayGame();
         useComponents();
         this.repaint();
     }
@@ -50,13 +53,13 @@ public class Home extends JFrame {
         Font font = this.title.getFont().deriveFont(Font.ITALIC,40);
         this.title.setFont(font);
         this.title.setSize(500,50);
-        this.title.setLocation(200,20);
+        this.title.setLocation(180,30);
     }
     private void configurationJLabelsPlayers(){
         JLabel labelPlayer1 = new JLabel("Player1");
         JLabel labelPlayer2 = new JLabel("Player2");
-        labelPlayer1.setLocation(50,70);
-        labelPlayer2.setLocation(350,70);
+        labelPlayer1.setLocation(50,150);
+        labelPlayer2.setLocation(350,150);
         labelPlayer1.setSize(200,30);
         labelPlayer2.setSize(200,30);
         this.labelsPlayers.add(labelPlayer1);
@@ -65,15 +68,21 @@ public class Home extends JFrame {
     private void configurationJTextsPlayers(){
         JTextField player1 = new JTextField();
         player1.setToolTipText("Ingrese su nombre");
-        player1.setBounds(50,100,200,30);
+        player1.setText("Ingrese su nombre");
+        player1.setBounds(50,180,250,50);
         JTextField player2 = new JTextField();
         player2.setToolTipText("Ingrese su nombre");
-        player2.setBounds(350,100,200,30);
+        player2.setText("Ingrese su nombre");
+        player2.setBounds(350,180,250,50);
         this.players.add(player1);
         this.players.add(player2);
     }
+    private void configurationPlayGame(){
+        this.playGame.setBackground(Color.ORANGE);
+        this.playGame.setBounds(220,350,200,60);
+    }
     private void addEvents(){
-
+    
     }
     private  void useComponents(){
         this.add(panel);
@@ -84,5 +93,6 @@ public class Home extends JFrame {
             this.panel.add(player);
             i++;
         }
+        this.panel.add(playGame);
     }
 }
