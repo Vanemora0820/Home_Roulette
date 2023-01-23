@@ -3,5 +3,5 @@
 gradle
 gradlew
 gradlew.bat
-build
-build/*
+/build
+/build/*
