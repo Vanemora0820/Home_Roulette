@@ -1,6 +1,7 @@
 package org.homeRoulette.Views;
 
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -71,17 +72,16 @@ public class Home extends JFrame {
     private void configurationJTextsPlayers(){
         JTextField player1 = new JTextField();
         player1.setToolTipText("Ingrese su nombre");
-        player1.setText("Ingrese su nombre");
         player1.setBounds(50,180,250,50);
         JTextField player2 = new JTextField();
         player2.setToolTipText("Ingrese su nombre");
-        player2.setText("Ingrese su nombre");
         player2.setBounds(350,180,250,50);
         this.players.add(player1);
         this.players.add(player2);
     }
     private void configurationPlayGame(){
         this.playGame.setBackground(Color.ORANGE);
+        this.playGame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         this.playGame.setBounds(220,350,200,60);
     }
     private void addEvents(){
@@ -89,10 +89,25 @@ public class Home extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                new Game();
-                dispose();
+                try {
+                    String[] playersNames = players.
+                            stream()
+                            .map(JTextComponent::getText)
+                            .toArray(String[]::new);
+                    validateName(playersNames[0]);
+                    validateName(playersNames[1]);
+                    new Game(playersNames);
+                    dispose();
+                }catch (IllegalArgumentException ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+
+                }
             }
         });
+    }
+    private void validateName(String name) throws IllegalArgumentException{
+        if(name.trim().isEmpty())
+            throw new IllegalArgumentException("Name not valid");
     }
     private  void useComponents(){
         this.add(panel);
@@ -105,4 +120,5 @@ public class Home extends JFrame {
         }
         this.panel.add(playGame);
     }
+
 }
